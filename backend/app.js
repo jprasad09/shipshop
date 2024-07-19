@@ -5,11 +5,21 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const FRONTEND_URL = "https://youcanshipshop.vercel.app/"
-app.use(cors({
-    origin: [FRONTEND_URL],
-    credentials: true
-}));
+const FRONTEND_URL = "https://youcanshipshop.vercel.app";
+const corsOptions = {
+    origin: FRONTEND_URL,
+    credentials: true,
+    methods: ["GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
+};
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', FRONTEND_URL);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+});
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
