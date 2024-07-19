@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
     AiOutlineArrowRight,
     AiOutlineCamera,
@@ -31,17 +31,23 @@ const ProfileContent = ({ active }) => {
     const [phoneNumber, setPhoneNumber] = useState(user && user.phoneNumber);
     const [password, setPassword] = useState("");
     const [avatar, setAvatar] = useState(null);
+
+    const ref = useRef(false);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (error) {
-            toast.error(error);
-            dispatch({ type: "clearErrors" });
+        if (ref.current) {
+            if (error) {
+                toast.error(error);
+                dispatch({ type: "clearErrors" });
+            }
+            if (successMessage) {
+                toast.success(successMessage);
+                dispatch({ type: "clearMessages" });
+            }
+            return;
         }
-        if (successMessage) {
-            toast.success(successMessage);
-            dispatch({ type: "clearMessages" });
-        }
+        ref.current = true;
     }, [error, successMessage]);
 
     const handleSubmit = (e) => {

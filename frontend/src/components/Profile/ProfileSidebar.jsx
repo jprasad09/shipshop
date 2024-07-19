@@ -12,17 +12,21 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { loadUser } from "../../redux/actions/user";
 
 const ProfileSidebar = ({ setActive, active }) => {
     const navigate = useNavigate();
     const { user } = useSelector((state) => state.user);
+
+    const dispatch = useDispatch();
+
     const logoutHandler = () => {
         axios
             .get(`${server}/user/logout`, { withCredentials: true })
             .then((res) => {
                 toast.success(res.data.message);
-                window.location.reload(true);
+                dispatch(loadUser());
                 navigate("/login");
             })
             .catch((error) => {

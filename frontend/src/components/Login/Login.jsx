@@ -5,12 +5,16 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { loadUser } from "../../redux/actions/user";
 
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [visible, setVisible] = useState(false);
+
+    const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,8 +30,8 @@ const Login = () => {
             )
             .then((res) => {
                 toast.success("Login successful");
+                dispatch(loadUser());
                 navigate("/");
-                window.location.reload(true);
             })
             .catch((err) => {
                 toast.error(err.response.data.message);
