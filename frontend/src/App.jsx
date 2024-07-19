@@ -120,7 +120,7 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          <Route path="/order/success" element={<OrderSuccessPage />} />
+          <Route path="/order-success" element={<OrderSuccessPage />} />
           <Route
             path="/profile"
             element={

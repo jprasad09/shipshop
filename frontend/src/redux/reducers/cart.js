@@ -29,4 +29,11 @@ export const cartReducer = createReducer(initialState, {
             cart: state.cart.filter((i) => i._id !== action.payload),
         };
     },
+
+    emptyCart: (state, action) => {
+        return {
+            ...state,
+            cart: [],
+        };
+    },
 });
