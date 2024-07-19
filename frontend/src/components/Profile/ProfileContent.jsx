@@ -217,11 +217,6 @@ const AllOrders = () => {
             headerName: "Status",
             minWidth: 130,
             flex: 0.7,
-            cellClassName: (params) => {
-                return params.getValue(params.id, "status") === "Delivered"
-                    ? "greenColor"
-                    : "redColor";
-            },
         },
         {
             field: "itemsQty",
@@ -249,7 +244,7 @@ const AllOrders = () => {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link to={`/user/order/${params.id}`}>
+                        <Link to={`/user/order/${params?.id}`}>
                             <Button>
                                 <AiOutlineArrowRight size={20} />
                             </Button>
@@ -305,11 +300,6 @@ const AllRefundOrders = () => {
             headerName: "Status",
             minWidth: 130,
             flex: 0.7,
-            cellClassName: (params) => {
-                return params.getValue(params.id, "status") === "Delivered"
-                    ? "greenColor"
-                    : "redColor";
-            },
         },
         {
             field: "itemsQty",
@@ -337,7 +327,7 @@ const AllRefundOrders = () => {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link to={`/user/order/${params.id}`}>
+                        <Link to={`/user/order/${params?.id}`}>
                             <Button>
                                 <AiOutlineArrowRight size={20} />
                             </Button>
@@ -390,11 +380,6 @@ const TrackOrder = () => {
             headerName: "Status",
             minWidth: 130,
             flex: 0.7,
-            cellClassName: (params) => {
-                return params.getValue(params.id, "status") === "Delivered"
-                    ? "greenColor"
-                    : "redColor";
-            },
         },
         {
             field: "itemsQty",
@@ -422,7 +407,7 @@ const TrackOrder = () => {
             renderCell: (params) => {
                 return (
                     <>
-                        <Link to={`/user/track/order/${params.id}`}>
+                        <Link to={`/user/track/order/${params?.id}`}>
                             <Button>
                                 <MdTrackChanges size={20} />
                             </Button>
