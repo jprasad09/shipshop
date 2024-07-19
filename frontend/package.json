@@ -10,8 +10,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/data-grid": "^4.0.0-alpha.37",
+    "@paypal/react-paypal-js": "^7.8.3",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@stripe/react-stripe-js": "^2.1.0",
+    "@stripe/stripe-js": "^1.52.1",
+    "axios": "^1.7.2",
+    "country-state-city": "^3.2.1",
+    "dotenv": "^16.4.5",
+    "js-cookie": "^3.0.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.2.1",
+    "react-lottie": "^1.2.4",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.8.2",
+    "react-toastify": "^10.0.5",
+    "socket.io-client": "^4.7.5",
+    "timeago.js": "^4.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
