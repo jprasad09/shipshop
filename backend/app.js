@@ -5,8 +5,9 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+const FRONTEND_URL = "https://youcanshipshop.vercel.app/"
 app.use(cors({
-    origin: [process.env.FRONTEND_URL,],
+    origin: [FRONTEND_URL],
     credentials: true
 }));
 

@@ -1,1 +1,2 @@
-export const server = import.meta.env.VITE_BACKEND_URL;
+export const server = "https://shipshop-five.vercel.app/api/v2";
+export const socket_endpoint = "https://shipshop-socket.onrender.com/";

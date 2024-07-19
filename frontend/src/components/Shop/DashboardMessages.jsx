@@ -10,8 +10,8 @@ import { TfiGallery } from "react-icons/tfi";
 import socketIO from "socket.io-client";
 import { format } from "timeago.js";
 
-const ENDPOINT = import.meta.env.VITE_SOCKET_URL;
-const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
+import { socket_endpoint } from "../../server";
+const socketId = socketIO(socket_endpoint, { transports: ["websocket"] });
 
 const DashboardMessages = () => {
     const { seller, isLoading } = useSelector((state) => state.seller);
